@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-### Install Chocolatey
+### Install [Chocolatey](https://chocolatey.org/)
 
 Run PowerShell as Administrator and execute commands:
 ```
@@ -11,7 +11,7 @@ iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/in
 ```
 
 ### Install tools
-As Administrator execute in shell:
+As Administrator execute in shell (eg. PowerShell):
 ```
 choco install python
 choco install git
@@ -23,6 +23,7 @@ On Windows 10+:
 ```
 choco install docker-for-windows
 ```
+
 On Window 7/Vista download and install: [Docker Toolbox](https://github.com/docker/toolbox/releases/tag/v1.12.3).
 
 ### Install Visual Studio Code plugins
@@ -30,7 +31,7 @@ On Window 7/Vista download and install: [Docker Toolbox](https://github.com/dock
  * Django Template
  * vscode-flake8
 
- Plugin dependencies will be pulled in automatically (vscode will ask, just allow it to proceed).
+Plugin dependencies will be pulled in automatically (vscode will ask, just allow it to proceed).
 
 ### Setup Docker
 You can use vscode built-in terminal `View -> Integrated terminal` to create Docker container:
@@ -64,7 +65,7 @@ docker exec -it django-girls bash
 When using terminal with Docker container follow instructions for Linux.
 
 ## Django and Docker
-From your computers' point of view Docker container looks like separate machine. When runing Django inside container remember to use IP and port accessible from outside:
+From the point of view of your OS, Docker container looks like a separate machine. When runing Django inside container remember to use IP and port accessible from "outside":
 ```
 ./manage.py runserver 0:8000
 ```
