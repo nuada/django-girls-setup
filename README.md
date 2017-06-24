@@ -47,7 +47,10 @@ Inside container update `pip` and install Django:
 ```
 pip install --upgrade pip
 pip install django
+```
 
+To install other packages use `apt`:
+```
 apt-get update
 apt-get install vim-nox
 ```
