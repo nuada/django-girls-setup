@@ -25,6 +25,10 @@ choco install docker-for-windows
 ```
 
 On Window 7/Vista download and install: [Docker Toolbox](https://github.com/docker/toolbox/releases/tag/v1.12.3).
+```
+choco install virtualbox
+choco install docker-toolbox
+```
 
 ### Install Visual Studio Code plugins
  * Python
