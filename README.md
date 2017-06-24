@@ -46,7 +46,8 @@ docker run -it -v /c/Users/<username>/Desktop/django-girls:/django-girls --name 
 Inside container update `pip` and install Django:
 ```
 pip install --upgrade pip
-pip install django~=1.9.0
+pip install django
+
 apt-get update
 apt-get install vim-nox
 ```
