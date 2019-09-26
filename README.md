@@ -1,79 +1,55 @@
-# Django Girls
+# Django Girls 2019
 
-## Prerequisites
+## Install Windows Subsystem for Linux (WSL1)
+In PowerShell execute:
+```
+Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
+```
+... and restart your computer.
 
-### Install [Chocolatey](https://chocolatey.org/)
+Full guide: [WSL Installation Guide for Windows 10](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
 
-Run PowerShell as Administrator and execute commands:
-```
-Set-ExecutionPolicy remotesigned
-iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
-```
+## Install & setup Ubuntu
+Go to Windows Store, search for `Ubuntu`, install.
 
-### Install tools
-As Administrator execute in shell (eg. PowerShell):
-```
-choco install python
-choco install git
-choco install visualstudiocode
-```
+Start Ubuntu from Start Menu, follow on-screen instructions to create your account.
 
-### Install Docker
-On Windows 10+:
-```
-choco install docker-for-windows
-```
+For details: [Initializing a newly installed distro](https://docs.microsoft.com/en-us/windows/wsl/initialize-distro).
 
-On Window 7/Vista download and install: [Docker Toolbox](https://github.com/docker/toolbox/releases/tag/v1.12.3).
+## Install Visual Studio Code
+Go to [download page](https://code.visualstudio.com/download) select "User Installer", follow the installation wizard.
+
+## Setup Python in WSL/Ubuntu
+Use VS Code built-in terminal `View -> Terminal`:
 ```
-choco install virtualbox
-choco install docker-toolbox
+wsl
+sudo -s
+apt-get update
+apt-get install python3-pip
+pip3 install black ipython
+exit
 ```
 
-### Install Visual Studio Code plugins
+## Install Visual Studio Code plugins (optional)
  * Python
  * Django Template
- * vscode-flake8
 
-Plugin dependencies will be pulled in automatically (vscode will ask, just allow it to proceed).
+## Tips
 
-### Setup Docker
-You can use vscode built-in terminal `View -> Integrated terminal` to create Docker container:
+### How to start WSL from cmd/PowerShell/VS Code Terminal/etc?
+In you preferred terminal type:
 ```
-docker run -it -v /c/Users/<username>/Desktop/django-girls:/django-girls --name django-girls -p 8000:8000 python bash
-```
-
-Inside container update `pip` and install Django:
-```
-pip install --upgrade pip
-pip install django
+wsl
 ```
 
-To install other packages use `apt`:
+### How to check IP address of WSL/Ubuntu?
+Inside WSL use `ip` command:
 ```
-apt-get update
-apt-get install vim-nox
+ip addr
 ```
+Use IP address of `eth0` interface.
 
-If you close (or stop) your container you can restart it using command:
-```
-docker start django-girls
-```
+### Where are my Windows files in WSL?
+When in WSL go to `/mnt/c` this will be an equivalent of `C:` in Windows.
 
-To start using previously created container you need to attach you terminal:
-```
-docker attach django-girls
-```
-
-To run command when Django server is running you can open new shell inside container using:
-```
-docker exec -it django-girls bash
-```
-
-When using terminal with Docker container follow instructions for Linux.
-
-## Django and Docker
-From the point of view of your OS, Docker container looks like a separate machine. When runing Django inside container remember to use IP and port accessible from "outside":
-```
-./manage.py runserver 0:8000
-```
+You desktop files are in: `/mnt/c/Users/<your username>/Desktop`.
