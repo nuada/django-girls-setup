@@ -1,7 +1,7 @@
 # Django Girls 2019
 
 ## Install Windows Subsystem for Linux (WSL1)
-In PowerShell execute:
+Run PowerShell as Administrator and execute command:
 ```
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
 ```
